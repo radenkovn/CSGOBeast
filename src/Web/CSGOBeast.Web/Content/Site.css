@@ -35,3 +35,7 @@ body {
     background-image: url(Images/background.jpg);
     color:white !important;
 }
+.navbar-nav > li > .profile {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}

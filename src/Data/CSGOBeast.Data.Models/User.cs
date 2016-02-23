@@ -1,14 +1,49 @@
 ﻿namespace CSGOBeast.Data.Models
 {
+    using System.Collections.Generic;
     using System.Security.Claims;
     using System.Threading.Tasks;
-
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class User : IdentityUser
     {
+        private ICollection<Item> items;
+        private ICollection<Ticket> tickets;
+
+        public User()
+        {
+            this.items = new HashSet<Item>();
+            this.tickets = new HashSet<Ticket>();
+        }
+
+        public ICollection<Item> Items
+        {
+            get
+            {
+                return this.items;
+            }
+
+            set
+            {
+                this.items = value;
+            }
+        }
+
+        public ICollection<Ticket> Tickets
+        {
+            get
+            {
+                return this.tickets;
+            }
+
+            set
+            {
+                this.tickets = value;
+            }
+        }
+
         public string TradeLink { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)

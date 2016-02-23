@@ -39,6 +39,11 @@
                 // Assign user to admin role
                 userManager.AddToRole(user.Id, GlobalConstants.AdministratorRoleName);
             }
+
+            if (!context.Items.Any())
+            {
+
+            }
         }
     }
 }

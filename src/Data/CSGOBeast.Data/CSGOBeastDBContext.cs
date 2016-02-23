@@ -16,6 +16,10 @@
         {
         }
 
+        public IDbSet<Ticket> Tickets { get; set; }
+
+        public IDbSet<Item> Items { get; set; }
+
         public static CSGOBeastDBContext Create()
         {
             return new CSGOBeastDBContext();

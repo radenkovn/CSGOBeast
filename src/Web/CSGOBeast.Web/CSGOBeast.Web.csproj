@@ -233,6 +233,9 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\SteamUsers\FullSteamResponse.cs" />
+    <Compile Include="ViewModels\SteamUsers\UsersResponse.cs" />
+    <Compile Include="ViewModels\SteamUsers\SteamUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

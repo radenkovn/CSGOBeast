@@ -8,28 +8,36 @@
 </div>
 <script>
 
-    function profilepic() {
+    (function() {
         $.ajax({
-            url: 'http://localhost:2509/Steam/GetProfile',
+            type: 'GET',
+            url: '/Steam/GetProfile',
             dataType: 'json',
             success: function (data) {
                 $.each(data.response.players, function (key, value) {
                     if ($('.profile')) {
-                        $('.profile').append("<img src='" + value.avatar + "'> <span>" + value.personaname + "</span>")
+                        $('.profile').append("<img src='" + value.avatar + "'/>")
                     }
-                    if ($('.profile1')) {
-                        $('.profile1').append("<img src='" + value.avatarfull + "'>")
-                    }
-                    if ($('.username')) {
-                        $('.username').append(value.personaname)
-                    }
-
                     console.log(value)
                 });
             }, error: function (httpReq, status, exception) {
                 console.log(status + " " + exception);
             }
         });
+    }());
+
+
+    function profilepic2() {
+        $.ajax({
+            type: 'GET',
+            url: '/Steam/GetInventory',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+            }, error: function (httpReq, status, exception) {
+                console.log(status + " " + exception);
+            }
+        });
     }
-    profilepic();
+    profilepic2();
 </script>
