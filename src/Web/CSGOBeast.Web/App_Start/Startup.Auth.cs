@@ -1,15 +1,17 @@
 ﻿namespace CSGOBeast.Web
 {
     using System;
+    using Common;
     using CSGOBeast.Data;
     using CSGOBeast.Data.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
     using Microsoft.Owin.Security.Cookies;
-    using Owin.Security.Providers.Steam;
     using Owin;
     using Owin.Security.Providers.OpenID;
+    using Owin.Security.Providers.Steam;
+
     public partial class Startup
     {
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
@@ -46,10 +48,9 @@
             // This is similar to the RememberMe option when you log in.
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
-
             var options = new SteamAuthenticationOptions
             {
-                ApplicationKey = "A7661DC68FB6B422BE91BA50245EA693",
+                ApplicationKey = GlobalConstants.SteamApplicationKey,
                 Provider = new OpenIDAuthenticationProvider // Steam is based on OpenID
                 {
                     OnAuthenticated = async context =>
@@ -61,12 +62,7 @@
             };
             app.UseSteamAuthentication(options);
 
-
-            //app.UseSteamAuthentication("A7661DC68FB6B422BE91BA50245EA693");
-
-            // app.UseFacebookAuthentication(
-            // appId: "",
-            // appSecret: "");
+            // app.UseSteamAuthentication("A7661DC68FB6B422BE91BA50245EA693");
         }
     }
 }
