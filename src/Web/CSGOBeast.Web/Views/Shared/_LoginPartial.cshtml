@@ -3,20 +3,24 @@
 {
     using (Html.BeginForm("LogOff", "Account", new { area = string.Empty }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new { id = "loginLink" })</li>
+        <li>
+            @*@Html.ActionLink("Log in Steam", "Login", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new { id = "loginLink" })*@
+            <a id="loginLink" href="@Url.Action("Login", "Account", routeValues:new { area = string.Empty })">
+                <img class="login-img" src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png" />
+            </a>
+        </li>
     </ul>
 }
