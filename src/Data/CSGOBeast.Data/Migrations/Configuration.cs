@@ -47,6 +47,9 @@
 
                     seed.Tickets.ForEach(x => context.Tickets.Add(x));
                     context.SaveChanges();
+
+                    seed.Coinflips.ForEach(x => context.Coinflips.Add(x));
+                    context.SaveChanges();
                 }
             }
         }

@@ -10,5 +10,7 @@
     public interface ICoinFlipsService
     {
         IQueryable<CoinFlip> GetCurrent();
+
+        IQueryable<CoinFlip> CompleteCoinFlip(int id, string userId);
     }
 }

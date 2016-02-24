@@ -6,10 +6,11 @@
     using System.Web;
     using System.Web.Mvc;
     using CSGOBeast.Web.Controllers;
-    using Services.Data;
     using Infrastructure.Mapping;
-    using Models.CoinFlips;
     using Microsoft.AspNet.Identity;
+    using Models.CoinFlips;
+    using Services.Data;
+
     [Authorize]
     public class CoinFlipsController : BaseController
     {
@@ -31,11 +32,32 @@
             var viewModel = new CurrentViewModel
             {
                 CoinFlips = coinflips,
-                Balance = userBalance,
-                
+                Balance = userBalance
             };
 
             return this.View(viewModel);
+        }
+
+        [ValidateAntiForgeryToken]
+        public ActionResult CompleteCoinFlip(CompleteCoinFlipViewModel model)
+        {
+
+            var userId = this.User.Identity.GetUserId();
+            if (!this.ModelState.IsValid)
+            {
+                this.RedirectToAction("Current", "CoinFlips");
+            }
+
+            var userBalance = this.users.GetById(userId).Balance;
+            var coinflips = this.coinflips.CompleteCoinFlip(model.Id, userId).To<CurrentCoinFlipViewModel>().ToList();
+
+            var viewModel = new CurrentViewModel
+            {
+                CoinFlips = coinflips,
+                Balance = userBalance
+            };
+
+            return this.RedirectToAction("Current", "CoinFlips");
         }
     }
 }

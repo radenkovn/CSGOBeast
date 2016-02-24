@@ -530,7 +530,33 @@
                 Answered = true,
                 UserId = this.Author.Id
             });
+
+            this.Coinflips = new List<CoinFlip>();
+
+            this.Coinflips.Add(new CoinFlip
+            {
+                CreatorId = this.Author.Id,
+                CreatorSum = 48.59m
+            });
+            this.Coinflips.Add(new CoinFlip
+            {
+                CreatorId = this.Author.Id,
+                CreatorSum = 53.2m
+            });
+            this.Coinflips.Add(new CoinFlip
+            {
+                CreatorId = this.Author.Id,
+                CreatorSum = 28.3m
+            });
+            this.Coinflips.Add(new CoinFlip
+            {
+                CreatorId = this.Author.Id,
+                CreatorSum = 12.38m
+            });
+
         }
+
+        public List<CoinFlip> Coinflips { get; set; }
 
         public List<Ticket> Tickets { get; set; }
 

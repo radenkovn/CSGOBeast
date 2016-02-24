@@ -9,6 +9,8 @@
 
     public class CurrentCoinFlipViewModel : IMapFrom<CoinFlip>
     {
+        public int Id { get; set; }
+
         public string CreatorId { get; set; }
 
         public virtual User Creator { get; set; }
@@ -22,5 +24,7 @@
         public decimal PlayerSum { get; set; }
 
         public CoinFlipWin Win { get; set; }
+
+        public CompleteCoinFlipViewModel CompleteCoinFlipViewModel => new CompleteCoinFlipViewModel() { Id = this.Id };
     }
 }
