@@ -1,16 +1,16 @@
-﻿namespace CSGOBeast.Data.Models
+﻿namespace CSGOBeast.Web.ViewModels.Shop
 {
+    using System;
     using System.Collections.Generic;
-    using Common.Models;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.Web;
+    using Data.Models;
+    using Infrastructure.Mapping;
 
-    public class Item : BaseModel<int>
+    public class ShopItemViewModel : IMapFrom<Item>
     {
-        private ICollection<User> users;
-
-        public Item()
-        {
-            this.users = new HashSet<User>();
-        }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
@@ -25,10 +25,5 @@
         public WeaponType WeaponType { get; set; }
 
         public ItemClassification Classification { get; set; }
-
-        public virtual ICollection<User> Users
-        {
-            get { return this.users; } set { this.users = value; }
-        }
     }
 }

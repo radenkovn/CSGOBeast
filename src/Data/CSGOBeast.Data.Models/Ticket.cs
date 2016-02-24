@@ -5,11 +5,10 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Common.Models;
 
-    public class Ticket
+    public class Ticket : BaseModel<int>
     {
-        public int Id { get; set; }
-
         public string AuthorName { get; set; }
 
         public string EmailAddress { get; set; }

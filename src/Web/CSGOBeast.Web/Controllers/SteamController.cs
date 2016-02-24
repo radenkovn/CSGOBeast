@@ -46,8 +46,7 @@
                 result = client.DownloadString(url);
             }
 
-            //var user = JsonConvert.DeserializeObject<FullSteamResponse>(result);
-
+            // var user = JsonConvert.DeserializeObject<FullSteamResponse>(result);
             return this.Content(result, "application/json");
         }
 
@@ -62,8 +61,7 @@
                 result = client.DownloadString(url);
             }
 
-            //var user = JsonConvert.DeserializeObject<FullSteamResponse>(result);
-
+            // var user = JsonConvert.DeserializeObject<FullSteamResponse>(result);
             return this.Content(result, "application/json");
         }
     }

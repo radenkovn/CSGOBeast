@@ -209,6 +209,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\SteamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,6 +234,8 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Shop\ShopItemViewModel.cs" />
+    <Compile Include="ViewModels\Shop\ShopViewModel.cs" />
     <Compile Include="ViewModels\SteamUsers\FullSteamResponse.cs" />
     <Compile Include="ViewModels\SteamUsers\UsersResponse.cs" />
     <Compile Include="ViewModels\SteamUsers\SteamUser.cs" />
@@ -305,6 +308,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\Jokes\ById.cshtml" />
+    <Content Include="Views\Shop\Items.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

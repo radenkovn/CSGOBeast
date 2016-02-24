@@ -7,6 +7,6 @@
         Pistol = 2,
         SMG = 3,
         Rifle = 4,
-        Heavy =5
+        Heavy = 5
     }
 }

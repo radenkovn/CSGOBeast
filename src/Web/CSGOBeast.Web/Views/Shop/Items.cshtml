@@ -1,0 +1,22 @@
+﻿@using CSGOBeast.Data.Models
+@using CSGOBeast.Web.ViewModels.Shop
+@model CSGOBeast.Web.ViewModels.Shop.ShopViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10 well">
+        <h2 style="float:right;">$<span class="user-credits">0.00</span></h2>
+        <h1>Store</h1>
+        <p>Welcome to the CS:GO Blackjack skin store, from here you are able to buy any of the skins that we currently have in our inventory, given you have enough balance to cover the purchase. After clicking on "Buy" on a weapon of your choice it will add a trade offer to your wallet page, and from there you will be able to retrieve it and have a trade offer sent to your account.</p>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+@foreach (var item in this.Model.Items)
+{
+
+}

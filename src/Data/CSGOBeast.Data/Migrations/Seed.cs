@@ -1,12 +1,12 @@
-﻿using CSGOBeast.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSGOBeast.Data.Migrations
+﻿namespace CSGOBeast.Data.Migrations
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using CSGOBeast.Data.Models;
+
     public class Seed
     {
         private static Random rand = new Random();
@@ -537,6 +537,5 @@ namespace CSGOBeast.Data.Migrations
         public List<Item> Items { get; set; }
 
         public User Author { get; set; }
-
     }
 }
