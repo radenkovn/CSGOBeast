@@ -11,5 +11,7 @@
     public interface IUsersService
     {
         User GetById(string id);
+
+        User Buy(string userId, int itemId);
     }
 }
