@@ -22,8 +22,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Games", "Index", "Home", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("CoinFlip", "Current", "CoinFlips", new { area = "Games" }, null)</li>
                 </ul>
+                @*<ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Games", "Index", "Home", new { area = string.Empty }, null)</li>
+                </ul>*@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

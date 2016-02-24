@@ -28,6 +28,8 @@
 
         public virtual User Player { get; set; }
 
+        public decimal PlayerSum { get; set; }
+
         public CoinFlipWin Win { get; set; }
 
         public virtual ICollection<Item> CreatorItems
