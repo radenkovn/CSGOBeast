@@ -10,6 +10,5 @@
         public decimal Balance { get; set; }
 
         public IEnumerable<ItemDetailsViewModel> Items { get; set; }
-
     }
 }

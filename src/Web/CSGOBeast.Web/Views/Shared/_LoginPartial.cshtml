@@ -7,7 +7,10 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @Html.ActionLink("Store", "Items", "Shop", routeValues: new { area = string.Empty }, htmlAttributes: new { @class = "" })
+                <span class="text-success"></span>
+            </li>
+            <li>
+                @Html.ActionLink("Inventory", "Inventory", "Inventory", routeValues: new { area = string.Empty }, htmlAttributes: new { @class = "" })
             </li>
             <li>
                 @Html.ActionLink(" ", "Index", "Manage", routeValues: new { area = string.Empty }, htmlAttributes: new { @class = "profile-name", title = "Manage" })

@@ -1,32 +1,24 @@
-﻿@model CSGOBeast.Web.ViewModels.Shop.ShopViewModel
+﻿@model CSGOBeast.Web.Areas.Games.Models.CoinFlips.CurrentViewModel
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Current";
 }
+
 <br />
-@Html.Partial("_SearchFilters", Model)
 <div class="row">
     <div class="col-md-12 well">
-        @if (Request.IsAuthenticated)
-        {
-            <h2 style="float:right;">$<span class="user-credits">@Model.User.Balance</span></h2>
-        }
-        <h1>Store</h1>
-        <p>Welcome to the CS:GO Beast skin store, from here you are able to buy any of the skins that we currently have in our inventory, given you have enough balance to cover the purchase. After clicking on "Buy" on a weapon of your choice it will add a trade offer to your wallet page, and from there you will be able to retrieve it and have a trade offer sent to your account.</p>
+        <h2 style="float:right;">Current Balance: $<span class="user-credits">@Model.Balance</span></h2>
+        <h1>Coin Flips</h1>
     </div>
     <div class="col-md-1"></div>
 </div>
 
+@foreach (var coinflip in Model.CoinFlips)
+{
+    @Html.Partial("_CoinFlipCurrent", coinflip)
+}
+
+
 <div class="row">
-    @foreach (var item in this.Model.Items)
-    {
-        @Html.Partial("_ItemDetails", item)
-    }
-    @if (this.Model.Items.Count() == 0)
-    {
-        <div class="text-center">
-            <h3>No items to display!</h3>
-        </div>
-    }
 </div>
 <div class="text-center">
     <ul class="pagination">
@@ -59,4 +51,3 @@
     </ul>
 </div>
 
-@Scripts.Render("~/bundles/shopQuery")

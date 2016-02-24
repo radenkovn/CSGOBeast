@@ -32,6 +32,7 @@
             return this.View(viewModel);
         }
 
+        [ValidateAntiForgeryToken]
         public ActionResult BuyItem(BuyModel item)
         {
             if (!this.ModelState.IsValid)
@@ -49,6 +50,7 @@
             return this.Redirect("/Inventory/");
         }
 
+        [ValidateAntiForgeryToken]
         public ActionResult SellItem(SellModel item)
         {
             if (!this.ModelState.IsValid)

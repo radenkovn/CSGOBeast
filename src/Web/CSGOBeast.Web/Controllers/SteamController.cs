@@ -35,11 +35,6 @@
             return this.ViewBag.steamid;
         }
 
-        private string GetSteamProfileUrl()
-        {
-            return string.Format(DefaultSteamUserApiAddress, GlobalConstants.SteamApplicationKey, this.GetSteamID());
-        }
-
         [HttpGet]
         public ContentResult GetProfile()
         {
@@ -47,7 +42,7 @@
 
             using (var client = new WebClient())
             {
-                result = result = this.Cache.Get(
+                result = this.Cache.Get(
                    GlobalConstants.UserInfoCache,
                    () => client.DownloadString(this.GetSteamProfileUrl()),
                    3 * 60);
@@ -71,10 +66,13 @@
                    30);
             }
 
-
-
             // var user = JsonConvert.DeserializeObject<FullSteamResponse>(result);
             return this.Content(result, "application/json");
+        }
+
+        private string GetSteamProfileUrl()
+        {
+            return string.Format(DefaultSteamUserApiAddress, GlobalConstants.SteamApplicationKey, this.GetSteamID());
         }
     }
 }

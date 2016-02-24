@@ -3,18 +3,14 @@
     using System.Data.Entity;
     using System.Reflection;
     using System.Web.Mvc;
-
     using Autofac;
     using Autofac.Integration.Mvc;
-
     using Controllers;
-
     using Data;
     using Data.Common;
-
     using Services.Data;
     using Services.Web;
-    using Data.Models;
+
     public static class AutofacConfig
     {
         public static void RegisterAutofac()

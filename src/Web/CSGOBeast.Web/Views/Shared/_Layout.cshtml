@@ -22,8 +22,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
+                    <li>
+                        @Html.ActionLink("Store", "Items", "Shop", routeValues: new { area = string.Empty }, htmlAttributes: new { @class = "" })
+                    </li>
+                    <li>@Html.ActionLink("CoinFlip", "Current", "CoinFlips", new { area = "Games" }, null)</li>
                 </ul>
+                @*<ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Games", "Index", "Home", new { area = string.Empty }, null)</li>
+                    </ul>*@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

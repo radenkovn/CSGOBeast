@@ -11,7 +11,6 @@
     using Services.Data;
     using ViewModels.Shop;
 
-    [Authorize]
     public class ShopController : BaseController
     {
         private const int DefaultPageSize = 12;
@@ -26,9 +25,15 @@
 
         public ActionResult Items(int id = 1, string name = null, string minPrice = null, string maxPrice = null, string groupType = null, string quality = null, string weaponType = null, string classification = null, string order = null)
         {
-            var userId = this.User.Identity.GetUserId();
-            var user = this.users.GetById(userId);
-            var userViewModel = this.Mapper.Map<ShopUserViewModel>(user);
+            var viewModel = new ShopViewModel();
+            if (this.User.Identity.IsAuthenticated)
+            {
+                var userId = this.User.Identity.GetUserId();
+                var user = this.users.GetById(userId);
+                var userViewModel = this.Mapper.Map<ShopUserViewModel>(user);
+                viewModel.User = userViewModel;
+            }
+
             var items = this.Cache.Get(
                 GlobalConstants.ItemsInfoCache,
                 () => this.items.GetPublic().To<ShopItemViewModel>().ToList(),
@@ -58,13 +63,9 @@
                 .Take(DefaultPageSize)
                 .ToList();
 
-            var viewModel = new ShopViewModel
-            {
-                Items = itemsToDisplay,
-                User = userViewModel,
-                CurrentPage = page,
-                TotalPages = totalPages
-            };
+            viewModel.Items = itemsToDisplay;
+            viewModel.CurrentPage = page;
+            viewModel.TotalPages = totalPages;
 
             return this.View(viewModel);
         }

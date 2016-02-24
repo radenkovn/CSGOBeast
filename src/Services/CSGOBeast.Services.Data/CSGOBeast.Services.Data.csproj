@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoinFlipsService.cs" />
+    <Compile Include="ICoinFlipsService.cs" />
     <Compile Include="IItemsService.cs" />
     <Compile Include="ItemsService.cs" />
     <Compile Include="IUsersService.cs" />
