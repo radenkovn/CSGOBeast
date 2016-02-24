@@ -226,6 +226,7 @@
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Inventory\UserInventoryViewModel.cs" />
     <Compile Include="ViewModels\Items\BuyModel.cs" />
     <Compile Include="ViewModels\Items\ItemDetailsViewModel.cs" />
     <Compile Include="ViewModels\Items\SellModel.cs" />
@@ -319,9 +320,11 @@
     <Content Include="Views\Shop\Items.cshtml" />
     <Content Include="Views\Items\Details.cshtml" />
     <Content Include="Views\Items\_BuyItem.cshtml" />
-    <Content Include="Views\Shop\_ItemDetails.cshtml" />
-    <Content Include="Views\Inventory\PlayerInventory.cshtml" />
+    <Content Include="Views\Shared\_ItemDetails.cshtml" />
+    <Content Include="Views\Inventory\Inventory.cshtml" />
     <Content Include="Views\Shared\_SearchFilters.cshtml" />
+    <Content Include="Views\Inventory\_SellItem.cshtml" />
+    <Content Include="Views\Inventory\_InventoryItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
