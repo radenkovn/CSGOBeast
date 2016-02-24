@@ -1,0 +1,24 @@
+﻿@model CSGOBeast.Web.ViewModels.Shop.ShopItemViewModel
+<div class="col-lg-3 col-md-6 text-center">
+    <div class="well result-box nomargin">
+        <h3><a href="https://csgostash.com/family/Fuel+Injector">@Model.Name</a></h3>
+
+        <div class="quality color-covert">
+            <p class="nomargin">@Model.Classification.ToString()</p>
+        </div>
+        <a href="@Model.ImageLink"><img class="img-responsive center-block" src="@Model.ImageLink" alt="@Model.Name"></a>
+        <div class="quality">
+            <p class="nomargin"><span class="text-success">@Model.Quality.ToString()</span></p>
+        </div>
+        <div class="price">
+            <p class="nomargin"><span class="price-st">@Model.Price $</span></p>
+        </div>
+        <div class="details-link">
+            <p class="nomargin"><a class="btn btn-success btn-xs" href="/Items/Details/@Model.Id">@Model.Name Skin &amp; Price Details</a></p>
+        </div>
+    </div>
+</div>
+
+
+
+
