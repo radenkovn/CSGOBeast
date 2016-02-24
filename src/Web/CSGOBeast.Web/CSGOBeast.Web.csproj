@@ -204,11 +204,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
+    <Compile Include="Areas\Games\Controllers\CoinFlipsController.cs" />
     <Compile Include="Areas\Games\GamesAreaRegistration.cs" />
+    <Compile Include="Areas\Games\Models\CoinFlips\CoinFlipItemViewModel.cs" />
+    <Compile Include="Areas\Games\Models\CoinFlips\CurrentCoinFlipViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\CoinflipsController.cs" />
-    <Compile Include="Controllers\GamesController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
@@ -275,6 +277,8 @@
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Games\Views\web.config" />
+    <Content Include="Areas\Games\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Games\Views\CoinFlips\Current.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -334,8 +338,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="Areas\Games\Controllers\" />
-    <Folder Include="Areas\Games\Models\" />
     <Folder Include="Areas\Games\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
