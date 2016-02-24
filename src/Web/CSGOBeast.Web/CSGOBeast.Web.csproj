@@ -207,6 +207,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
     <Compile Include="Controllers\ShopController.cs" />
@@ -234,6 +235,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Shared\PageableModel.cs" />
     <Compile Include="ViewModels\Shop\ShopItemViewModel.cs" />
     <Compile Include="ViewModels\Shop\ShopUserViewModel.cs" />
     <Compile Include="ViewModels\Shop\ShopViewModel.cs" />

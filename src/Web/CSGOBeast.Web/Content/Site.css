@@ -62,6 +62,9 @@ body {
     color:white;
     background-color:#272B30;
 }
+.well form{
+    color:black;
+}
 
 .price-st{
     color: #F89406;

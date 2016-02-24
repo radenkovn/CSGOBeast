@@ -5,6 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="col-md-10 well">
+    <form method="GET" style="text-align:center;">
+        <label><b>Filter:</b></label>
+        <input name="p" value="" type="hidden">
+        <input name="name" placeholder="Filter by name or wear." value="doppler" class="filter-skins-store" style="width:200px" type="text">
+        <input step="0.01" name="minprice" placeholder="Min. price" style="width:80px" type="number">
+        <input step="0.01" name="maxprice" placeholder="Max. price" style="width:80px" type="number">
+        @Html.EnumDropDownListFor(model => model.Items.FirstOrDefault().GroupType)
+        @Html.EnumDropDownListFor(model => model.Items.FirstOrDefault().Quality)
+        @Html.EnumDropDownListFor(model => model.Items.FirstOrDefault().WeaponType)
+        @Html.EnumDropDownListFor(model => model.Items.FirstOrDefault().Classification)
+        <select name="order" style="color:black;">
+            <option value="newest" selected="selected">Newest</option>
+            <option value="highestprice">Highest Price</option>
+            <option value="lowestprice">Lowest Price</option>
+        </select>
+        <button type="submit" class="btn btn-success btn-xs">Search</button>
+    </form>
+</div>
 <div class="row">
     <div class="col-md-1">
     </div>
@@ -16,24 +35,55 @@
     <div class="col-md-1"></div>
 </div>
 
-<div class="row"></div>
-@foreach (var item in this.Model.Items)
-{
-    <div class="col-lg-3 col-md-6 text-center">
-        <div class="well result-box nomargin">
-            <h3><a href="https://csgostash.com/family/Fuel+Injector">@item.Name</a></h3>
+<div class="row">
+    @foreach (var item in this.Model.Items)
+    {
+        <div class="col-lg-3 col-md-6 text-center">
+            <div class="well result-box nomargin">
+                <h3><a href="https://csgostash.com/family/Fuel+Injector">@item.Name</a></h3>
 
-            <div class="quality color-covert">
-                <p class="nomargin">@item.Classification.ToString()</p>
-            </div>
-            <a href="@item.ImageLink"><img class="img-responsive center-block" src="@item.ImageLink" alt="@item.Name"></a>
+                <div class="quality color-covert">
+                    <p class="nomargin">@item.Classification.ToString()</p>
+                </div>
+                <a href="@item.ImageLink"><img class="img-responsive center-block" src="@item.ImageLink" alt="@item.Name"></a>
 
-            <div class="price">
-                <p class="nomargin"><span class="price-st">@item.Price $</span></p>
-            </div>            
-            <div class="details-link">
-                <p class="nomargin"><a href="https://csgostash.com/skin/720/AK-47-Fuel-Injector"><span class="glyphicon glyphicon glyphicon-link"></span>AK-47 Fuel Injector Skin &amp; Price Details</a></p>
+                <div class="price">
+                    <p class="nomargin"><span class="price-st">@item.Price $</span></p>
+                </div>
+                <div class="details-link">
+                    <p class="nomargin"><a href="https://csgostash.com/skin/720/AK-47-Fuel-Injector"><span class="glyphicon glyphicon glyphicon-link"></span>AK-47 Fuel Injector Skin &amp; Price Details</a></p>
+                </div>
             </div>
         </div>
-    </div>
-}
+    }
+</div>
+<div class="text-center">
+    <ul class="pagination">
+        @if (Model.CurrentPage > 1)
+            {
+            <li>
+                <a href="/Shop/Items/@(Model.CurrentPage - 1)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        }
+        @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                var className = string.Empty;
+                if (Model.CurrentPage == i)
+                {
+                    className = "active";
+                }
+                <li class="@className"><a href="/Shop/Items/@i">@i</a></li>
+        }
+
+        @if (Model.CurrentPage < Model.TotalPages)
+            {
+            <li>
+                <a href="/Shop/Items/@(Model.CurrentPage+1)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
