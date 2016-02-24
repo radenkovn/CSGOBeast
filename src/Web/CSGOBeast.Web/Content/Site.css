@@ -36,17 +36,22 @@ body {
     color: white !important;
 }
 
-.container{
+.container {
     width: 100% !important;
     padding-left: 3% !important;
     padding-right: 3% !important;
 }
+
 .navbar-nav > li > .profile-name {
     padding-top: 9px !important;
     padding-bottom: 9px !important;
-    display:inline-block;
+    display: inline-block;
 }
 
+.home-logo-btn {
+    padding-top: 10px !important;
+    height: 40px !important;
+}
 
 
 .navbar-nav > li:hover {
