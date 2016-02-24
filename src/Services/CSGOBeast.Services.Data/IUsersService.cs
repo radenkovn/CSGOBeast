@@ -13,5 +13,7 @@
         User GetById(string id);
 
         User Buy(string userId, int itemId);
+
+        User Sell(string userId, int itemId);
     }
 }
