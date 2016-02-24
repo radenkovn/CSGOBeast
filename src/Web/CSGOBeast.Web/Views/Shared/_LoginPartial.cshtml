@@ -7,6 +7,9 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
+                @Html.ActionLink("Inventory", "Inventory", "Inventory", routeValues: new { area = string.Empty }, htmlAttributes: new { @class = "" })
+            </li>
+            <li>
                 @Html.ActionLink("Store", "Items", "Shop", routeValues: new { area = string.Empty }, htmlAttributes: new { @class = "" })
             </li>
             <li>
