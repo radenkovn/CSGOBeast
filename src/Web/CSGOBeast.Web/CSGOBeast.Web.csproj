@@ -318,6 +318,7 @@
     <Content Include="Views\Shop\Items.cshtml" />
     <Content Include="Views\Items\Details.cshtml" />
     <Content Include="Views\Items\_BuyItem.cshtml" />
+    <Content Include="Views\Shop\_ItemDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

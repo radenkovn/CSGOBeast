@@ -8,7 +8,7 @@
     using CSGOBeast.Services.Data;
     using Microsoft.AspNet.Identity;
     using ViewModels.Items;
-
+    using Common;
     [Authorize]
     public class InventoryController : BaseController
     {
@@ -31,6 +31,8 @@
             var userId = this.User.Identity.GetUserId();
 
             this.users.Buy(userId, item.ItemId);
+
+            this.Cache.Remove(GlobalConstants.ItemsInfoCache);
 
             return this.View();
         }

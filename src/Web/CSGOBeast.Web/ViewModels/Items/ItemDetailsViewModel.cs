@@ -21,6 +21,6 @@
 
         public ItemClassification Classification { get; set; }
 
-        public BuyModel BuyModel => new BuyModel();
+        public BuyModel BuyModel => new BuyModel { ItemId = this.Id };
     }
 }

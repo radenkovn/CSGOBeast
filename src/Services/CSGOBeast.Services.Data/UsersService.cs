@@ -30,9 +30,11 @@ namespace CSGOBeast.Services.Data
             var itemToAdd = this.items.GetById(itemId);
             if (currentUser.Balance >= itemToAdd.Price)
             {
+                currentUser.Balance -= itemToAdd.Price;
                 currentUser.Items.Add(itemToAdd);
+                itemToAdd.Bought = true;
                 this.users.Update(currentUser);
-                //this.items.Save();
+                this.items.Save();
                 this.users.SaveChanges();
             }
             return currentUser;

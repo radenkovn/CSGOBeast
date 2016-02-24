@@ -393,7 +393,7 @@
                     return this.View("ExternalLoginFailure");
                 }
 
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Email, Email = model.Email, Balance = 100 };
                 var result = await this.UserManager.CreateAsync(user);
 
                 if (result.Succeeded)
