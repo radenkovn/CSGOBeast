@@ -7,5 +7,7 @@
         public string PersonaName { get; set; }
 
         public string SteamId { get; set; }
+
+        public decimal Balance { get; set; }
     }
 }

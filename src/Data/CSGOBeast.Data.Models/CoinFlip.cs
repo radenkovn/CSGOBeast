@@ -12,7 +12,6 @@
         private ICollection<Item> creatorItems;
         private ICollection<Item> playerItems;
 
-
         public CoinFlip()
         {
             this.creatorItems = new HashSet<Item>();
@@ -48,12 +47,12 @@
         {
             get
             {
-                return playerItems;
+                return this.playerItems;
             }
 
             set
             {
-                playerItems = value;
+                this.playerItems = value;
             }
         }
     }

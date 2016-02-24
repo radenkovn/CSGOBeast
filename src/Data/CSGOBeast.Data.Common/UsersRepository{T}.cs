@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSGOBeast.Data.Common
+﻿namespace CSGOBeast.Data.Common
 {
-    public class UsersRepository<T> : IUsersRepository<T> where T : class
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    public class UsersRepository<T> : IUsersRepository<T>
+        where T : class
     {
         public UsersRepository(DbContext context)
         {
