@@ -208,6 +208,7 @@
     <Compile Include="Areas\Games\GamesAreaRegistration.cs" />
     <Compile Include="Areas\Games\Models\CoinFlips\CoinFlipItemViewModel.cs" />
     <Compile Include="Areas\Games\Models\CoinFlips\CurrentCoinFlipViewModel.cs" />
+    <Compile Include="Areas\Games\Models\CoinFlips\CurrentViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
@@ -279,6 +280,7 @@
     <Content Include="Areas\Games\Views\web.config" />
     <Content Include="Areas\Games\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Games\Views\CoinFlips\Current.cshtml" />
+    <Content Include="Areas\Games\Views\CoinFlips\_CoinFlipCurrent.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />

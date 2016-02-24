@@ -14,14 +14,6 @@
     {
         public ActionResult Index()
         {
-            var c = this.HttpContext.GetOwinContext().Authentication.User.Claims.ToList();
-            var values = new List<string>();
-            foreach (var item in c)
-            {
-                var a = item.Value;
-                values.Add(a);
-            }
-
             return this.View();
         }
     }

@@ -1,6 +1,4 @@
-﻿@using CSGOBeast.Data.Models
-@using CSGOBeast.Web.ViewModels.Shop
-@model CSGOBeast.Web.ViewModels.Shop.ShopViewModel
+﻿@model CSGOBeast.Web.ViewModels.Shop.ShopViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,7 +6,10 @@
 @Html.Partial("_SearchFilters", Model)
 <div class="row">
     <div class="col-md-12 well">
-        <h2 style="float:right;">$<span class="user-credits">@Model.User.Balance</span></h2>
+        @if (Request.IsAuthenticated)
+        {
+            <h2 style="float:right;">$<span class="user-credits">@Model.User.Balance</span></h2>
+        }
         <h1>Store</h1>
         <p>Welcome to the CS:GO Beast skin store, from here you are able to buy any of the skins that we currently have in our inventory, given you have enough balance to cover the purchase. After clicking on "Buy" on a weapon of your choice it will add a trade offer to your wallet page, and from there you will be able to retrieve it and have a trade offer sent to your account.</p>
     </div>

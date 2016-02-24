@@ -7,22 +7,35 @@
     using System.Web.Mvc;
     using CSGOBeast.Web.Controllers;
     using Services.Data;
-
+    using Infrastructure.Mapping;
+    using Models.CoinFlips;
+    using Microsoft.AspNet.Identity;
     [Authorize]
     public class CoinFlipsController : BaseController
     {
         private ICoinFlipsService coinflips;
+        private IUsersService users;
 
-        public CoinFlipsController(ICoinFlipsService coinflips)
+        public CoinFlipsController(ICoinFlipsService coinflips, IUsersService users)
         {
             this.coinflips = coinflips;
+            this.users = users;
         }
 
         public ActionResult Current()
         {
-            var coinflips = this.coinflips.GetCurrent();
+            var userId = this.User.Identity.GetUserId();
+            var userBalance = this.users.GetById(userId).Balance;
+            var coinflips = this.coinflips.GetCurrent().To<CurrentCoinFlipViewModel>().ToList();
 
-            return this.View();
+            var viewModel = new CurrentViewModel
+            {
+                CoinFlips = coinflips,
+                Balance = userBalance,
+                
+            };
+
+            return this.View(viewModel);
         }
     }
 }

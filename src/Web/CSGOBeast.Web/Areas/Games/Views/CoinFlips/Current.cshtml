@@ -1,7 +1,52 @@
-﻿
+﻿@model CSGOBeast.Web.Areas.Games.Models.CoinFlips.CurrentViewModel
 @{
     ViewBag.Title = "Current";
 }
 
-<h2>Current</h2>
+<div class="row">
+    <div class="col-md-12 well">
+        <h2 style="float:right;">Current Balance$<span class="user-credits">@Model.Balance</span></h2>
+        <h1>Coin Flips</h1>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+@foreach (var coinflip in Model.CoinFlips)
+{
+    @Html.Partial("_CoinFlipCurrent", coinflip)
+}
+
+
+<div class="row">
+</div>
+<div class="text-center">
+    <ul class="pagination">
+        @if (Model.CurrentPage > 1)
+            {
+            <li>
+                <a class="query-link" href="/Shop/Items/@(Model.CurrentPage - 1)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        }
+        @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                var className = string.Empty;
+                if (Model.CurrentPage == i)
+                {
+                    className = "active";
+                }
+                <li class="@className"><a class="query-link" href="/Shop/Items/@i">@i</a></li>
+        }
+
+        @if (Model.CurrentPage < Model.TotalPages)
+            {
+            <li>
+                <a class="query-link" href="/Shop/Items/@(Model.CurrentPage+1)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
 
