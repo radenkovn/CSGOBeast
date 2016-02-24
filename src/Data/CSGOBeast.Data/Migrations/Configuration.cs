@@ -19,7 +19,6 @@
         {
             const string AdministratorUserName = "admin@admin.com";
             const string AdministratorPassword = AdministratorUserName;
-
             if (!context.Roles.Any())
             {
                 // Create admin role
@@ -38,11 +37,17 @@
 
                 // Assign user to admin role
                 userManager.AddToRole(user.Id, GlobalConstants.AdministratorRoleName);
-            }
+                if (!context.Items.Any())
+                {
+                    var seed = new Seed(user);
+                    context.SaveChanges();
 
-            if (!context.Items.Any())
-            {
+                    seed.Items.ForEach(x => context.Items.Add(x));
+                    context.SaveChanges();
 
+                    seed.Tickets.ForEach(x => context.Tickets.Add(x));
+                    context.SaveChanges();
+                }
             }
         }
     }

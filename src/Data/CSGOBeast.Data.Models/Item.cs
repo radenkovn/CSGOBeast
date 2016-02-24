@@ -1,10 +1,6 @@
 ﻿namespace CSGOBeast.Data.Models
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class Item
     {
@@ -24,6 +20,12 @@
         public decimal Price { get; set; }
 
         public ItemQuality Quality { get; set; }
+
+        public GroupType GroupType { get; set; }
+
+        public WeaponType WeaponType { get; set; }
+
+        public ItemClassification Classification { get; set; }
 
         public virtual ICollection<User> Users { get { return this.users; } set { this.users = value; } }
     }
