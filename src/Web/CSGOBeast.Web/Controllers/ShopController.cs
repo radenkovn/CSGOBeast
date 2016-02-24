@@ -35,7 +35,7 @@
                 30);
             if (order != null)
             {
-                items = order== "highestprice" ? items.OrderByDescending(x => x.Price).ToList() : items = items.OrderBy(x => x.Price).ToList(); 
+                items = order == "highestprice" ? items.OrderByDescending(x => x.Price).ToList() : items = items.OrderBy(x => x.Price).ToList();
             }
 
             var itemsToDisplay = items
