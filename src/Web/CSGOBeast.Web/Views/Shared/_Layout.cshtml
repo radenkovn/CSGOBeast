@@ -36,6 +36,10 @@
         </footer>
     </div>
     @Scripts.Render("~/bundles/bootstrap")
+    @if (Request.IsAuthenticated)
+    {
+        @Scripts.Render("~/bundles/steamJs")
+    }
     @RenderSection("scripts", required: false)
 </body>
 </html>

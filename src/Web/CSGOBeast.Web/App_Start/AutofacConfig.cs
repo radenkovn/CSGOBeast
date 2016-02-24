@@ -14,7 +14,7 @@
 
     using Services.Data;
     using Services.Web;
-
+    using Data.Models;
     public static class AutofacConfig
     {
         public static void RegisterAutofac()
@@ -61,6 +61,10 @@
             builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
             builder.RegisterGeneric(typeof(DbRepository<>))
                 .As(typeof(IDbRepository<>))
+                .InstancePerRequest();
+
+            builder.RegisterGeneric(typeof(UsersRepository<>))
+                .As(typeof(IUsersRepository<>))
                 .InstancePerRequest();
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())

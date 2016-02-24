@@ -7,6 +7,8 @@
 
     public class ShopViewModel
     {
+        public ShopUserViewModel User { get; set; }
+
         public IEnumerable<ShopItemViewModel> Items { get; set; }
     }
 }

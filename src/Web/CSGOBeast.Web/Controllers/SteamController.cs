@@ -35,15 +35,22 @@
             return this.ViewBag.steamid;
         }
 
+        private string GetSteamProfileUrl()
+        {
+            return string.Format(DefaultSteamUserApiAddress, GlobalConstants.SteamApplicationKey, this.GetSteamID());
+        }
+
         [HttpGet]
         public ContentResult GetProfile()
         {
-            string url = string.Format(DefaultSteamUserApiAddress, GlobalConstants.SteamApplicationKey, this.GetSteamID());
             string result = null;
 
             using (var client = new WebClient())
             {
-                result = client.DownloadString(url);
+                result = result = this.Cache.Get(
+                   GlobalConstants.UserInfoCache,
+                   () => client.DownloadString(this.GetSteamProfileUrl()),
+                   3 * 60);
             }
 
             // var user = JsonConvert.DeserializeObject<FullSteamResponse>(result);
@@ -58,8 +65,13 @@
 
             using (var client = new WebClient())
             {
-                result = client.DownloadString(url);
+                result = this.Cache.Get(
+                   "userInventory",
+                   () => client.DownloadString(url),
+                   30);
             }
+
+
 
             // var user = JsonConvert.DeserializeObject<FullSteamResponse>(result);
             return this.Content(result, "application/json");

@@ -8,30 +8,38 @@
     using Infrastructure.Mapping;
     using Services.Data;
     using ViewModels.Shop;
-
+    using Microsoft.AspNet.Identity;
+    using Common;
+    [Authorize]
     public class ShopController : BaseController
     {
         private IItemsService items;
+        private IUsersService users;
 
-        public ShopController(IItemsService items)
+        public ShopController(IItemsService items, IUsersService users)
         {
             this.items = items;
+            this.users = users;
         }
 
         public ActionResult Items()
         {
+            var userId = this.User.Identity.GetUserId();
+            var user = this.users.GetById(userId);
+            var userViewModel = this.Mapper.Map<ShopUserViewModel>(user);
             var items =
             this.Cache.Get(
-                "categories",
+                GlobalConstants.ItemsInfoCache,
                 () => this.items.GetAll().To<ShopItemViewModel>().ToList(),
                 30);
 
             var viewModel = new ShopViewModel
             {
-                Items = items
+                Items = items,
+                User = userViewModel
             };
 
-            return this.View(items);
+            return this.View(viewModel);
 
         }
     }

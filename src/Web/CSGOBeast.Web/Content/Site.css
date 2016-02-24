@@ -57,3 +57,14 @@ body {
 .navbar-nav > li:hover {
     background-color: #8BA446;
 }
+
+.well{
+    color:white;
+    background-color:#272B30;
+}
+
+.price-st{
+    color: #F89406;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:18px;
+}

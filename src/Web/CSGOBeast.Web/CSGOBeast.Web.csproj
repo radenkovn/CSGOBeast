@@ -235,6 +235,7 @@
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Shop\ShopItemViewModel.cs" />
+    <Compile Include="ViewModels\Shop\ShopUserViewModel.cs" />
     <Compile Include="ViewModels\Shop\ShopViewModel.cs" />
     <Compile Include="ViewModels\SteamUsers\FullSteamResponse.cs" />
     <Compile Include="ViewModels\SteamUsers\UsersResponse.cs" />
@@ -271,6 +272,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Steam\get-user-info.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -307,7 +309,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
-    <Content Include="Views\Jokes\ById.cshtml" />
     <Content Include="Views\Shop\Items.cshtml" />
   </ItemGroup>
   <ItemGroup>

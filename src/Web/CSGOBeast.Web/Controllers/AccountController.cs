@@ -420,6 +420,7 @@
         public ActionResult LogOff()
         {
             this.AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            this.Cache.Remove(GlobalConstants.UserInfoCache);
             return this.RedirectToAction("Index", "Home");
         }
 
