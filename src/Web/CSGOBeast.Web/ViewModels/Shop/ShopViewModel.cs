@@ -1,5 +1,6 @@
 ﻿namespace CSGOBeast.Web.ViewModels.Shop
 {
+    using Data.Models;
     using Shared;
     using System;
     using System.Collections.Generic;
@@ -17,5 +18,13 @@
         public ShopUserViewModel User { get; set; }
 
         public IEnumerable<ShopItemViewModel> Items { get; set; }
+
+        public ItemQuality? Quality { get; set; }
+
+        public GroupType? GroupType { get; set; }
+
+        public WeaponType? WeaponType { get; set; }
+
+        public ItemClassification? Classification { get; set; }
     }
 }
