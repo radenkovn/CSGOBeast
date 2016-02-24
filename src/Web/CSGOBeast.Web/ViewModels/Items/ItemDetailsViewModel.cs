@@ -20,5 +20,7 @@
         public WeaponType WeaponType { get; set; }
 
         public ItemClassification Classification { get; set; }
+
+        public BuyModel BuyModel => new BuyModel();
     }
 }
