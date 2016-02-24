@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="col-lg-3 col-md-6 text-center">
+<div class="col-lg-12 col-md-6 text-center">
     <div class="well result-box nomargin">
         <h3><a href="https://csgostash.com/family/Fuel+Injector">@Model.Name</a></h3>
 
@@ -14,11 +14,18 @@
         <div class="quality">
             <p class="nomargin"><span class="text-success">@Model.Quality.ToString()</span></p>
         </div>
+        <div class="quality">
+            <p class="nomargin"><span class="text-warning">@Model.Classification.ToString()</span></p>
+        </div>
+        <div class="quality">
+            <p class="nomargin"><span class="text-success">@Model.GroupType.ToString()</span></p>
+        </div>
         <div class="price">
             <p class="nomargin"><span class="price-st">@Model.Price $</span></p>
         </div>
+        @Html.Partial("_BuyItem", Model.BuyModel)
         <div class="details-link">
-            <p class="nomargin"><a class="btn btn-success btn-xs" href="/Items/Details/@Model.Id">@Model.Name Skin &amp; Price Details</a></p>
+            <p class="nomargin"><a class="btn btn-success btn-xs" href="/Items/Details/@Model.Id">Add To Cart</a></p>
         </div>
     </div>
 </div>
