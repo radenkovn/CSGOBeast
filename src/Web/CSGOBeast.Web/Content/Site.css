@@ -23,19 +23,32 @@ textarea {
     max-width: 280px;
 }
 
-.navbar{
+.navbar {
     background-color: #05331D;
 }
 
-.navbar .container a{
-    color:white !important;
-}
+    .navbar .container a {
+        color: white !important;
+    }
 
 body {
     background-image: url(Images/background.jpg);
-    color:white !important;
+    color: white !important;
 }
-.navbar-nav > li > .profile {
-    padding-top: 9px;
-    padding-bottom: 9px;
+
+.container{
+    width: 100% !important;
+    padding-left: 3% !important;
+    padding-right: 3% !important;
+}
+.navbar-nav > li > .profile-name {
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+    display:inline-block;
+}
+
+
+
+.navbar-nav > li:hover {
+    background-color: #8BA446;
 }

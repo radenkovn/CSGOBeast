@@ -8,7 +8,7 @@
 </div>
 <script>
 
-    (function() {
+    (function () {
         $.ajax({
             type: 'GET',
             url: '/Steam/GetProfile',
@@ -16,7 +16,9 @@
             success: function (data) {
                 $.each(data.response.players, function (key, value) {
                     if ($('.profile')) {
-                        $('.profile').append("<img src='" + value.avatar + "'/>")
+                        $('.profile-name').html("");
+                        $('.profile-name').append("<img src='" + value.avatar + "'/>");
+                        $('.profile-name').append(" " + value.personaname);
                     }
                     console.log(value)
                 });
@@ -27,17 +29,16 @@
     }());
 
 
-    function profilepic2() {
-        $.ajax({
-            type: 'GET',
-            url: '/Steam/GetInventory',
-            dataType: 'json',
-            success: function (data) {
-                console.log(data);
-            }, error: function (httpReq, status, exception) {
-                console.log(status + " " + exception);
-            }
-        });
-    }
-    profilepic2();
+    //function profilepic2() {
+    //    $.ajax({
+    //        type: 'GET',
+    //        url: '/Steam/GetInventory',
+    //        dataType: 'json',
+    //        success: function (data) {
+    //            console.log(data);
+    //        }, error: function (httpReq, status, exception) {
+    //            console.log(status + " " + exception);
+    //        }
+    //    });
+    //}
 </script>
