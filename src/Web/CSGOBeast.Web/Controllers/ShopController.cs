@@ -5,11 +5,12 @@
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+    using Common;
     using Infrastructure.Mapping;
+    using Microsoft.AspNet.Identity;
     using Services.Data;
     using ViewModels.Shop;
-    using Microsoft.AspNet.Identity;
-    using Common;
+
     [Authorize]
     public class ShopController : BaseController
     {
