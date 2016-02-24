@@ -31,7 +31,7 @@
             var userViewModel = this.Mapper.Map<ShopUserViewModel>(user);
             var items = this.Cache.Get(
                 GlobalConstants.ItemsInfoCache,
-                () => this.items.GetAll().To<ShopItemViewModel>().ToList(),
+                () => this.items.GetPublic().To<ShopItemViewModel>().ToList(),
                 30);
             if (order != null)
             {
@@ -47,8 +47,8 @@
 
             var itemsToDisplay = items
                 .Where(x => string.IsNullOrEmpty(name) ? true : x.Name.ToLower().Contains(name.ToLower()))
-                .Where(x => string.IsNullOrEmpty(minPrice) ? true : (x.Price >= int.Parse(minPrice)))
-                .Where(x => string.IsNullOrEmpty(maxPrice) ? true : (x.Price <= int.Parse(maxPrice)))
+                .Where(x => string.IsNullOrEmpty(minPrice) ? true : (x.Price >= decimal.Parse(minPrice)))
+                .Where(x => string.IsNullOrEmpty(maxPrice) ? true : (x.Price <= decimal.Parse(maxPrice)))
                 .Where(x => string.IsNullOrEmpty(groupType) ? true : ((int)x.GroupType == int.Parse(groupType)))
                 .Where(x => string.IsNullOrEmpty(quality) ? true : ((int)x.Quality == int.Parse(quality)))
                 .Where(x => string.IsNullOrEmpty(weaponType) ? true : ((int)x.WeaponType == int.Parse(weaponType)))
