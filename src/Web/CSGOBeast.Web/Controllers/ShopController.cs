@@ -35,14 +35,7 @@
                 30);
             if (order != null)
             {
-                if (order == "highestprice")
-                {
-                    items = items.OrderByDescending(x => x.Price).ToList();
-                }
-                else
-                {
-                    items = items.OrderBy(x => x.Price).ToList();
-                }
+                items = order== "highestprice" ? items.OrderByDescending(x => x.Price).ToList() : items = items.OrderBy(x => x.Price).ToList(); 
             }
 
             var itemsToDisplay = items
@@ -56,11 +49,8 @@
                 .ToList();
 
             var page = id;
-
             var allItemsCount = itemsToDisplay.Count();
-
             var itemsToSkip = (page - 1) * DefaultPageSize;
-
             var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)DefaultPageSize);
 
             itemsToDisplay = itemsToDisplay
