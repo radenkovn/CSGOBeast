@@ -9,7 +9,7 @@
 
     public interface IItemsService
     {
-        IQueryable<Item> GetAll();
+        IQueryable<Item> GetPublic();
 
         Item GetById(int id);
     }

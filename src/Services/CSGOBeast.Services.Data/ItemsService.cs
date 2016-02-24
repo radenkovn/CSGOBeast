@@ -17,9 +17,14 @@
             this.items = items;
         }
 
-        public IQueryable<Item> GetAll()
+        public IQueryable<Item> GetPublic()
         {
-            return this.items.All();
+            return this.items.All().Where(x => x.Bought == false);
+        }
+
+        public IQueryable<Item> GetByUser(string userID)
+        {
+            return this.items.All().Where(x => x.Bought == true).Where(x => x.Users.Any(y => y.Id == userID));
         }
 
         public Item GetById(int id)
