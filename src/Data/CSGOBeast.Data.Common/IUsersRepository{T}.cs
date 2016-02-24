@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSGOBeast.Data.Common
+﻿namespace CSGOBeast.Data.Common
 {
-    public interface IUsersRepository<T> : IDisposable where T : class
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    public interface IUsersRepository<T> : IDisposable
+        where T : class
     {
         IQueryable<T> All();
 

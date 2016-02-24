@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CSGOBeast.Data.Common
 {
-    public class UsersRepository<T> : IRepository<T> where T : class
+    public class UsersRepository<T> : IUsersRepository<T> where T : class
     {
-        public UsersRepository(IHolidayDestinationsDbContext context)
+        public UsersRepository(DbContext context)
         {
             if (context == null)
             {
@@ -22,7 +23,7 @@ namespace CSGOBeast.Data.Common
 
         protected IDbSet<T> DbSet { get; set; }
 
-        protected IHolidayDestinationsDbContext Context { get; set; }
+        protected DbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {
