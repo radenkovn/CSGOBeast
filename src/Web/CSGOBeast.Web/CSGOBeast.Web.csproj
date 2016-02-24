@@ -228,6 +228,7 @@
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\Items\BuyModel.cs" />
     <Compile Include="ViewModels\Items\ItemDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Items\SellModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
@@ -319,6 +320,8 @@
     <Content Include="Views\Items\Details.cshtml" />
     <Content Include="Views\Items\_BuyItem.cshtml" />
     <Content Include="Views\Shop\_ItemDetails.cshtml" />
+    <Content Include="Views\Inventory\PlayerInventory.cshtml" />
+    <Content Include="Views\Shared\_SearchFilters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
