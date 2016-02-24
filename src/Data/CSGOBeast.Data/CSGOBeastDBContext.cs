@@ -20,6 +20,8 @@
 
         public IDbSet<Item> Items { get; set; }
 
+        public IDbSet<CoinFlip> Coinflips { get; set; }
+
         public static CSGOBeastDBContext Create()
         {
             return new CSGOBeastDBContext();

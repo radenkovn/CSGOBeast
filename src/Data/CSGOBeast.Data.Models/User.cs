@@ -11,11 +11,13 @@
     {
         private ICollection<Item> items;
         private ICollection<Ticket> tickets;
+        private ICollection<CoinFlip> coinflips;
 
         public User()
         {
             this.items = new HashSet<Item>();
             this.tickets = new HashSet<Ticket>();
+            this.coinflips = new HashSet<CoinFlip>();
         }
 
         public virtual ICollection<Item> Items
@@ -47,6 +49,19 @@
         public string TradeLink { get; set; }
 
         public decimal Balance { get; set; }
+
+        public virtual ICollection<CoinFlip> Coinflips
+        {
+            get
+            {
+                return this.coinflips;
+            }
+
+            set
+            {
+                this.coinflips = value;
+            }
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

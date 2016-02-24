@@ -6,10 +6,12 @@
     public class Item : BaseModel<int>
     {
         private ICollection<User> users;
+        private ICollection<CoinFlip> coinflips;
 
         public Item()
         {
             this.users = new HashSet<User>();
+            this.coinflips = new HashSet<CoinFlip>();
         }
 
         public string Name { get; set; }
@@ -31,6 +33,19 @@
         public virtual ICollection<User> Users
         {
             get { return this.users; } set { this.users = value; }
+        }
+
+        public virtual ICollection<CoinFlip> Coinflips
+        {
+            get
+            {
+                return this.coinflips;
+            }
+
+            set
+            {
+                this.coinflips = value;
+            }
         }
     }
 }
