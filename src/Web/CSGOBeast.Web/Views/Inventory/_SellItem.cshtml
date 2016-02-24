@@ -1,0 +1,13 @@
+﻿@model CSGOBeast.Web.ViewModels.Items.SellModel
+@{
+    ViewBag.Title = "_BuyItem";
+}
+
+@using (Html.BeginForm("SellItem", "Inventory", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="details-link">
+        @Html.EditorFor(m => m.ItemId, new { @class = "form-control", htmlAttributes = new { placeholder = "Enter your Idea", @class = "hidden" } })
+        <p class="nomargin"><input type="submit" class="btn btn-success btn-xs" value="Sell Item" /></p>
+    </div>
+}

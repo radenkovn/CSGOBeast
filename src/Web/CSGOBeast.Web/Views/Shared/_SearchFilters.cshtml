@@ -1,0 +1,20 @@
+﻿@model CSGOBeast.Web.ViewModels.Shop.ShopViewModel
+<div class="row">
+    <div class="col-md-12 well">
+        <form method="GET" style="text-align:center;">
+            <input id="search-name" name="name" placeholder="Filter by name or wear." class="filter-skins-store" style="width:200px" type="text">
+            <input id="search-min-price" step="0.01" name="minprice" placeholder="Min. price" style="width:80px" type="number">
+            <input id="search-max-price" step="0.01" name="maxprice" placeholder="Max. price" style="width:80px" type="number">
+            @Html.EnumDropDownListFor(model => model.GroupType, "group", htmlAttributes: new { id = "item-group-type" })
+            @Html.EnumDropDownListFor(model => model.Quality, "quality", htmlAttributes: new { id = "item-quality-type" })
+            @Html.EnumDropDownListFor(model => model.WeaponType, "wep", htmlAttributes: new { id = "item-weapon-type" })
+            @Html.EnumDropDownListFor(model => model.Classification, "rarity", htmlAttributes: new { id = "item-classification-type" })
+            <select id="order-by" name="order" style="color:black;">
+                <option value="highestprice">Highest Price</option>
+                <option value="lowestprice">Lowest Price</option>
+            </select>
+            <input type="submit" id="search-submit" value="Search" class="btn btn-success btn-xs">
+        </form>
+    </div>
+</div>
+

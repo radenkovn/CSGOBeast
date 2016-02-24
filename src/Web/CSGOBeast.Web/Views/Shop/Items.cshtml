@@ -4,28 +4,10 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@Html.Partial("_SearchFilters", Model)
 <div class="row">
     <div class="col-md-12 well">
-        <form method="GET" style="text-align:center;">
-            <input id="search-name" name="name" placeholder="Filter by name or wear." class="filter-skins-store" style="width:200px" type="text">
-            <input id="search-min-price" step="0.01" name="minprice" placeholder="Min. price" style="width:80px" type="number">
-            <input id="search-max-price" step="0.01" name="maxprice" placeholder="Max. price" style="width:80px" type="number">
-            @Html.EnumDropDownListFor(model => model.GroupType, "group", htmlAttributes: new { id = "item-group-type" })
-            @Html.EnumDropDownListFor(model => model.Quality, "quality", htmlAttributes: new { id = "item-quality-type" })
-            @Html.EnumDropDownListFor(model => model.WeaponType, "wep", htmlAttributes: new { id = "item-weapon-type" })
-            @Html.EnumDropDownListFor(model => model.Classification, "rarity", htmlAttributes: new { id = "item-classification-type" })
-            <select id="order-by" name="order" style="color:black;">
-                <option value="highestprice">Highest Price</option>
-                <option value="lowestprice">Lowest Price</option>
-            </select>
-            <input type="submit" id="search-submit" value="Search" class="btn btn-success btn-xs">
-        </form>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12 well">
-        <h2 style="float:right;">$<span class="user-credits">0.00</span></h2>
+        <h2 style="float:right;">$<span class="user-credits">@Model.User.Balance</span></h2>
         <h1>Store</h1>
         <p>Welcome to the CS:GO Beast skin store, from here you are able to buy any of the skins that we currently have in our inventory, given you have enough balance to cover the purchase. After clicking on "Buy" on a weapon of your choice it will add a trade offer to your wallet page, and from there you will be able to retrieve it and have a trade offer sent to your account.</p>
     </div>
@@ -35,25 +17,7 @@
 <div class="row">
     @foreach (var item in this.Model.Items)
     {
-        <div class="col-lg-3 col-md-6 text-center">
-            <div class="well result-box nomargin">
-                <h3><a href="https://csgostash.com/family/Fuel+Injector">@item.Name</a></h3>
-
-                <div class="quality color-covert">
-                    <p class="nomargin">@item.Classification.ToString()</p>
-                </div>
-                <a href="@item.ImageLink"><img class="img-responsive center-block" src="@item.ImageLink" alt="@item.Name"></a>
-                <div class="quality">
-                    <p class="nomargin"><span class="text-success">@item.Quality.ToString()</span></p>
-                </div>
-                <div class="price">
-                    <p class="nomargin"><span class="price-st">@item.Price $</span></p>
-                </div>
-                <div class="details-link">
-                    <p class="nomargin"><a class="btn btn-success btn-xs" href="/Items/Details/@item.Id">@item.Name Skin &amp; Price Details</a></p>
-                </div>
-            </div>
-        </div>
+        @Html.Partial("_ItemDetails", item)
     }
     @if (this.Model.Items.Count() == 0)
     {

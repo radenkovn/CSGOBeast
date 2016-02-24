@@ -18,7 +18,7 @@
             this.tickets = new HashSet<Ticket>();
         }
 
-        public ICollection<Item> Items
+        public virtual ICollection<Item> Items
         {
             get
             {
@@ -31,7 +31,7 @@
             }
         }
 
-        public ICollection<Ticket> Tickets
+        public virtual ICollection<Ticket> Tickets
         {
             get
             {

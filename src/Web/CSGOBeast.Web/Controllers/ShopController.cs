@@ -5,11 +5,12 @@
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+    using Common;
     using Infrastructure.Mapping;
+    using Microsoft.AspNet.Identity;
     using Services.Data;
     using ViewModels.Shop;
-    using Microsoft.AspNet.Identity;
-    using Common;
+
     [Authorize]
     public class ShopController : BaseController
     {
@@ -30,24 +31,17 @@
             var userViewModel = this.Mapper.Map<ShopUserViewModel>(user);
             var items = this.Cache.Get(
                 GlobalConstants.ItemsInfoCache,
-                () => this.items.GetAll().To<ShopItemViewModel>().ToList(),
+                () => this.items.GetPublic().To<ShopItemViewModel>().ToList(),
                 30);
             if (order != null)
             {
-                if (order == "highestprice")
-                {
-                    items = items.OrderByDescending(x => x.Price).ToList();
-                }
-                else
-                {
-                    items = items.OrderBy(x => x.Price).ToList();
-                }
+                items = order == "highestprice" ? items.OrderByDescending(x => x.Price).ToList() : items = items.OrderBy(x => x.Price).ToList();
             }
 
             var itemsToDisplay = items
                 .Where(x => string.IsNullOrEmpty(name) ? true : x.Name.ToLower().Contains(name.ToLower()))
-                .Where(x => string.IsNullOrEmpty(minPrice) ? true : (x.Price >= int.Parse(minPrice)))
-                .Where(x => string.IsNullOrEmpty(maxPrice) ? true : (x.Price <= int.Parse(maxPrice)))
+                .Where(x => string.IsNullOrEmpty(minPrice) ? true : (x.Price >= decimal.Parse(minPrice)))
+                .Where(x => string.IsNullOrEmpty(maxPrice) ? true : (x.Price <= decimal.Parse(maxPrice)))
                 .Where(x => string.IsNullOrEmpty(groupType) ? true : ((int)x.GroupType == int.Parse(groupType)))
                 .Where(x => string.IsNullOrEmpty(quality) ? true : ((int)x.Quality == int.Parse(quality)))
                 .Where(x => string.IsNullOrEmpty(weaponType) ? true : ((int)x.WeaponType == int.Parse(weaponType)))
@@ -55,11 +49,8 @@
                 .ToList();
 
             var page = id;
-
             var allItemsCount = itemsToDisplay.Count();
-
             var itemsToSkip = (page - 1) * DefaultPageSize;
-
             var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)DefaultPageSize);
 
             itemsToDisplay = itemsToDisplay

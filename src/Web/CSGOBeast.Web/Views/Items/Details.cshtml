@@ -1,0 +1,28 @@
+﻿@model CSGOBeast.Web.ViewModels.Items.ItemDetailsViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-12 col-md-6 text-center">
+    <div class="well result-box nomargin">
+        <h3><a href="/Items/Details/@Model.Id">@Model.Name</a></h3>
+
+        <div class="quality color-covert">
+            <p class="nomargin">@Model.Classification.ToString()</p>
+        </div>
+        <a href="@Model.ImageLink"><img class="img-responsive center-block" src="@Model.ImageLink" alt="@Model.Name"></a>
+        <div class="quality">
+            <p class="nomargin"><span class="text-success">@Model.Quality.ToString()</span></p>
+        </div>
+        <div class="quality">
+            <p class="nomargin"><span class="text-warning">@Model.Classification.ToString()</span></p>
+        </div>
+        <div class="quality">
+            <p class="nomargin"><span class="text-primary">@Model.GroupType.ToString()</span></p>
+        </div>
+        <div class="price">
+            <p class="nomargin"><span class="price-st">@Model.Price $</span></p>
+        </div>
+        @Html.Partial("_BuyItem", Model.BuyModel)
+    </div>
+</div>

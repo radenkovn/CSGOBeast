@@ -1,0 +1,25 @@
+﻿@model CSGOBeast.Web.ViewModels.Inventory.UserInventoryViewModel
+@{
+    ViewBag.Title = "PlayerInventory";
+}
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-12 well">
+            <h2 style="float:right;">$<span class="user-credits">@Model.Balance</span></h2>
+            <h1>Inventory</h1>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    @foreach (var item in this.Model.Items)
+    {
+        @Html.Partial("_InventoryItem", item)
+    }
+    @if (this.Model.Items.Count() == 0)
+    {
+        <div class="text-center">
+            <h3>No items to display!</h3>
+        </div>
+    }
+</div>
+
