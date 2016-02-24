@@ -26,6 +26,8 @@
 
         public ItemClassification Classification { get; set; }
 
+        public bool Bought { get; set; }
+
         public virtual ICollection<User> Users
         {
             get { return this.users; } set { this.users = value; }
